@@ -1,4 +1,7 @@
+import 'package:catalogue_app/pages/home_page.dart';
+import 'package:catalogue_app/pages/login_page.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 void main() {
   runApp(MyApp());
@@ -8,11 +11,21 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Material(
-        child: Container(
-          child: Center(child: Text("Hello World !")),
-        ),
+      //home: HomePage(), either routes or this
+      
+      themeMode:ThemeMode.light,
+      theme: ThemeData(
+        //brightness: Brightness.dark,
+        primarySwatch: Colors.red,
+        fontFamily: GoogleFonts.lato().fontFamily,
+        //primaryTextTheme: GoogleFonts.lato().fontFamily,
       ),
+
+      routes: {
+        "/": (context) => LoginPage(),
+        "/LoginPage":(context) => LoginPage(),
+        "/home" :(context) => HomePage(),
+      },
     );
   }
 }
